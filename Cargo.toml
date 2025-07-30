@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "dashboard",
+    "webapp",
+]
+resolver = "2"

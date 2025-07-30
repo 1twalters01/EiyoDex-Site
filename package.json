@@ -1,0 +1,13 @@
+{
+    "private": true,
+    "workspaces": [
+        "home",
+        "docs"
+    ],
+    "scripts": {
+        "dev:home": "npm run dev --workspace=landing",
+        "dev:docs": "npm run dev --workspace=docs",
+        "build:home": "npm run build --workspace=home",
+        "build:docs": "npm run build --workspace=docs"
+    }
+}
