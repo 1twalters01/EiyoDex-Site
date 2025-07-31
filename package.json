@@ -1,13 +1,14 @@
 {
     "private": true,
+    "packageManager": "npm@10.2.4",
     "workspaces": [
-        "home",
-        "docs"
+        "apps/astro/*"
     ],
     "scripts": {
-        "dev:home": "npm run dev --workspace=landing",
-        "dev:docs": "npm run dev --workspace=docs",
-        "build:home": "npm run build --workspace=home",
-        "build:docs": "npm run build --workspace=docs"
+        "dev": "turbo run dev",
+        "build": "turbo run build"
+    },
+    "devDependencies": {
+        "turbo": "^2.5.5"
     }
 }

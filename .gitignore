@@ -1,6 +1,7 @@
 # build output
 **/dist/
 **/target/
+.turbo/
 
 # dependencies
 **/node_modules/
