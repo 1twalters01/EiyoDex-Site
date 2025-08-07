@@ -1,5 +1,3 @@
-
-
 export default function SSRTest() {
     const time = new Date().toISOString();
     return (
