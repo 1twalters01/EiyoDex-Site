@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const stylesPath = path.resolve(__dirname, '../../../styles')
 const envPath = path.resolve(__dirname, '../../../.env');
 let res = dotenv.config({ path: envPath });
 if (res.error) {
@@ -19,9 +20,16 @@ const PORT = parseInt(process.env.HOME_SERVER_PORT ?? '2001');
 // https://astro.build/config
 export default defineConfig({
     integrations: [solidJs()],
+    vite: {
+        resolve: {
+            alias: {
+                "@styles": stylesPath,
+            },
+        },
+    },
     server: {
         host: HOST,
         port: PORT,
-    }
+    },
 });
 
