@@ -1,17 +1,25 @@
 {
+    "name": "EiyoDex-Site",
     "private": true,
-    "packageManager": "npm@10.2.4",
+    "version": "1.0.0",
+    "packageManager": "pnpm@9.6.0",
     "workspaces": [
         "apps/astro/*"
     ],
     "scripts": {
-        "dev": "turbo run dev",
-        "build": "turbo run build"
-    },
-    "devDependencies": {
-        "turbo": "^2.5.5"
+        "test": "pnpm -r run test",
+        "dev": "pnpm -r run dev",
+        "build": "pnpm -r run build",
+        "preview": "pnpm -r run preview",
+        "lint": "pnpm -r run lint",
+        "format": "prettier --config .prettierrc.toml \"**/*.{ts,scss}\" --write"
     },
     "dependencies": {
         "dotenv": "^17.2.1"
+    },
+    "devDependencies": {
+        "prettier": "3.6.2",
+        "sass": "^1.90.0",
+        "typescript": "^5.8.3"
     }
 }
