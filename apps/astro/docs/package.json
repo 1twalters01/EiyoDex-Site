@@ -10,6 +10,8 @@
     "lint": ""
   },
   "dependencies": {
-    "astro": "^5.12.6"
+    "@astrojs/solid-js": "^5.1.0",
+    "astro": "^5.12.6",
+    "solid-js": "^1.9.7"
   }
 }

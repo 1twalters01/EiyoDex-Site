@@ -24,9 +24,15 @@ importers:
 
   apps/astro/docs:
     dependencies:
+      '@astrojs/solid-js':
+        specifier: ^5.1.0
+        version: 5.1.0(@types/node@24.2.1)(sass@1.90.0)(solid-js@1.9.8)
       astro:
         specifier: ^5.12.6
         version: 5.12.9(@types/node@24.2.1)(rollup@4.46.2)(sass@1.90.0)(typescript@5.9.2)
+      solid-js:
+        specifier: ^1.9.7
+        version: 1.9.8
 
   apps/astro/forum:
     dependencies:

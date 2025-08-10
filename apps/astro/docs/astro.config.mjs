@@ -1,5 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import solidJs from "@astrojs/solid-js"
+
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import path from 'path';
@@ -17,6 +19,7 @@ const PORT = parseInt(process.env.DOCS_SERVER_PORT ?? '2003');
 console.log(PORT)
 // https://astro.build/config
 export default defineConfig({
+    integrations: [solidJs()],
     vite: {
         resolve: {
             alias: {
