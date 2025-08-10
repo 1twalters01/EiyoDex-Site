@@ -1,0 +1,11 @@
+[package]
+name = "phantom"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix = "0.13.5"
+tokio = { version = "1", features = ["full"] }
+redis = { version = "0.32.5", features = ["tokio-comp"] }
+chrono = { version = "0.4.41", features = ["serde"] }
+uuid = { version = "1.17.0", features = ["v4", "fast-rng"] }
