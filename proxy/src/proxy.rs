@@ -1,25 +1,21 @@
-use actix_web::{
-    HttpRequest,
-    HttpResponse,
-    web,
-};
-use reqwest::{
-    Client,
-    Method,
-};
+use actix_web::{web, HttpRequest, HttpResponse};
+use reqwest::{Client, Method};
 
-pub async fn proxy(req: HttpRequest, body: web::Bytes, target: String, prefix: &str) -> HttpResponse {
+pub async fn proxy(
+    req: HttpRequest,
+    body: web::Bytes,
+    target: String,
+    prefix: &str,
+) -> HttpResponse {
     let client = Client::new();
 
     let unsplit_uri = req.uri().to_string();
     let uri = unsplit_uri.strip_prefix(prefix).unwrap_or_default();
     let forward_url = format!("{}{}", target, uri);
-    println!("forward url: {}", forward_url);
+    // println!("forward url: {}", forward_url);
 
     let req_method: Method = req.method().to_string().parse().unwrap();
-    let mut forward_req = client
-        .request(req_method, forward_url)
-        .body(body.clone());
+    let mut forward_req = client.request(req_method, forward_url).body(body.clone());
 
     for (name, value) in req.headers().iter() {
         if let Ok(val_str) = value.to_str() {
@@ -42,8 +38,6 @@ pub async fn proxy(req: HttpRequest, body: web::Bytes, target: String, prefix: &
             }
             client_resp.body(bytes)
         }
-        Err(e) => HttpResponse::InternalServerError()
-            .body(format!("Proxy error: P{}", e)),
+        Err(e) => HttpResponse::InternalServerError().body(format!("Proxy error: P{}", e)),
     }
 }
-
