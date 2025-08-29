@@ -1,6 +1,8 @@
 [workspace]
 members = [
     "apps/leptos/*",
-    "proxy", "xtask",
+    "apps/phantom",
+    "apps/proxy",
+    "xtask",
 ]
 resolver = "2"
